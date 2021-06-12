@@ -53,7 +53,7 @@ let interval=setInterval(() => {
     }
 
     // Movemos el pacman
-    const dest=document.querySelectorAll("#board>div")[(position.v*9)+position.h];
+    const dest=document.querySelectorAll("#board>div")[(position.v*19)+position.h];
 
     // Comprovamos si hay un cuadro de comida
     if (dest.classList.contains("food")) {
