@@ -83,12 +83,12 @@ const checkCollision = g => {
     // Si la posicion del fantasma es la misma que la de pacman
     if (g.v==position.v && g.h==position.h) {
         // Revisamos si el fantasma esta en azul para comerlo
-        if (document.querySelectorAll("#board>div")[(g.v*19)+g.h].classList.contains("blue")) {
-            g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*11)+g.h]);
+        if (document.querySelectorAll("#board>div")[(g.v*20)+g.h].classList.contains("blue")) {
+            g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
             g.removeColor("blue");
             g.h=9;
             g.v=9;
-            g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*11)+g.h]);
+            g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
             score=score+10;
             document.getElementById("score").innerHTML=score;
         } else {
@@ -107,7 +107,7 @@ const checkCollision = g => {
  * @return boolean
  */
 const gCanUp = g => screenDraw[g.v-1][g.h]==1 || screenDraw[g.v-1][g.h]==2;
-const gCanRight = g => screenDraw[g.v][g.h+1]==1 || g.h+1==11;
+const gCanRight = g => screenDraw[g.v][g.h+1]==1 || g.h+1==20;
 const gCanDown = g => screenDraw[g.v+1][g.h]==1;
 const gCanLeft = g => screenDraw[g.v][g.h-1]==1 || g.h-1==-1;
 
@@ -152,7 +152,7 @@ function endGame() {
 
     // Ponemos un intervalo en el pacman para que parpadee
     setInterval(() => {
-        document.querySelectorAll("#board>div")[(position.v*11)+position.h].classList.toggle("comecocos")
+        document.querySelectorAll("#board>div")[(position.v*20)+position.h].classList.toggle("comecocos")
     }, 1000);
 }
 
