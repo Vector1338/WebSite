@@ -65,7 +65,7 @@ ghosts.forEach(g => {
             g.h=g.h-1;
             g.h = g.h==-1 ? 18 : g.h;
         }
-        g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*15)+g.h]);
+        g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*1)+g.h]);
 
         // revisamos si hay colision con pacman
         checkCollision(g);
