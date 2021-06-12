@@ -15,7 +15,7 @@ let position={
     v:11
 }
 let score=0;
-let speed=1000;
+let speed=700;
 
 // Dibujamos el comecocos
 document.querySelectorAll("#board>div")[(position.v*19)+position.h].classList.remove("food");

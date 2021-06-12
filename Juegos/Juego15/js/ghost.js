@@ -9,8 +9,7 @@
  *  2-bottom
  *  3-left
  */
-'use strict'
-let speedGhost=1000;
+let speedGhost=700;
 
 function ghost(direction, h, v, color, interval) {
     this.direction=direction;
