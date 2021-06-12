@@ -86,8 +86,8 @@ const checkCollision = g => {
         if (document.querySelectorAll("#board>div")[(g.v*19)+g.h].classList.contains("blue")) {
             g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*11)+g.h]);
             g.removeColor("blue");
-            g.h=1;
-            g.v=1;
+            g.h=9;
+            g.v=9;
             g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*11)+g.h]);
             score=score+10;
             document.getElementById("score").innerHTML=score;
