@@ -44,7 +44,7 @@ let ghosts=[
 
 // dibujamos los fantasmas
 ghosts.forEach(g => {
-    g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
+    g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*1)+g.h]);
     g.interval=setInterval(() => {
         // revisamos si hay colision con pacman
         if (checkCollision(g)) {
@@ -53,7 +53,7 @@ ghosts.forEach(g => {
 
         // buscamos la siguiente direccion para el fantasma
         g.direction=newDirection(g);
-        g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*1)+g.h]);
+        g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
         if (g.direction==0 && gCanUp(g)) {
             g.v=g.v-1;
         } else if (g.direction==1 && gCanRight(g)) {
