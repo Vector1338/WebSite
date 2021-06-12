@@ -1,0 +1,75 @@
+#board {
+    background-color: black;
+    display:inline-block
+}
+
+#board>div {
+    float:left;
+    width: 20px;
+    height: 20px;
+}
+
+.newLine {
+    clear:both;
+}
+.wall {
+    background-color:blue!important;
+}
+.food, .energizer {
+    color:white;
+}
+.food:after {
+    content:"·";
+    position: absolute;
+    margin-top:-14px;
+    margin-left:5px;
+    font-size:42px;
+}
+.energizer:after {
+    content:"·";
+    position: absolute;
+    margin-top:-40px;
+    font-size:84px;
+    margin-left: -3px;
+}
+.door:after {
+    content:"=";
+    font-size: 28px;
+    color:blue;
+    margin-top:-5px;
+    margin-left:2px;
+    position: absolute;
+}
+.comecocos {
+    border-radius: 10px;
+    width:20px;
+    height:20px;
+    background-color:yellow!important;
+}
+
+
+/* ghosts */
+.red {
+    background-color:Red;
+    color:red;
+    border-radius: 8px 8px 0px 0px;
+}
+.pink {
+    background-color:pink;
+    color:pink;
+    border-radius: 8px 8px 0px 0px;
+}
+.purple {
+    background-color:purple;
+    color:purple;
+    border-radius: 8px 8px 0px 0px;
+}
+.orange {
+    background-color:orange;
+    color:orange;
+    border-radius: 8px 8px 0px 0px;
+}
+.red.blue, .pink.blue, .purple.blue, .orange.blue {
+    background-color:blue;
+    color:blue;
+}
