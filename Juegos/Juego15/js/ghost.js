@@ -9,7 +9,8 @@
  *  2-bottom
  *  3-left
  */
-let speedGhost=150;
+'use strict'
+let speedGhost=500;
 
 function ghost(direction, h, v, color, interval) {
     this.direction=direction;
@@ -83,7 +84,7 @@ const checkCollision = g => {
     // Si la posicion del fantasma es la misma que la de pacman
     if (g.v==position.v && g.h==position.h) {
         // Revisamos si el fantasma esta en azul para comerlo
-        if (document.querySelectorAll("#board>div")[(g.v*20)+g.h].classList.contains("blue")) {
+        if (document.querySelectorAll("#board>div")[(g.v*19)+g.h].classList.contains("blue")) {
             g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
             g.removeColor("blue");
             g.h=9;
