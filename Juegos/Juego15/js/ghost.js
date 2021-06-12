@@ -98,6 +98,7 @@ const checkCollision = g => {
         return true;
     }
     return false;
+    console.log(g);
 }
 
 /**
