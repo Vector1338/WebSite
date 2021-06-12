@@ -9,7 +9,7 @@
  *  2-bottom
  *  3-left
  */
-let speedGhost=150;
+let speedGhost=300;
 
 function ghost(direction, h, v, color, interval) {
     this.direction=direction;
@@ -44,7 +44,7 @@ let ghosts=[
 
 // dibujamos los fantasmas
 ghosts.forEach(g => {
-    g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*11)+g.h]);
+    g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
     g.interval=setInterval(() => {
         // revisamos si hay colision con pacman
         if (checkCollision(g)) {
@@ -53,19 +53,19 @@ ghosts.forEach(g => {
 
         // buscamos la siguiente direccion para el fantasma
         g.direction=newDirection(g);
-        g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
+        g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
         if (g.direction==0 && gCanUp(g)) {
             g.v=g.v-1;
         } else if (g.direction==1 && gCanRight(g)) {
             g.h=g.h+1;
-            g.h = g.h==20 ? 0 : g.h;
+            g.h = g.h==19 ? 0 : g.h;
         } else if (g.direction==2 && gCanDown(g)) {
             g.v=g.v+1;
         } else if (g.direction==3 && gCanLeft(g)) {
             g.h=g.h-1;
-            g.h = g.h==-1 ? 19 : g.h;
+            g.h = g.h==-1 ? 18 : g.h;
         }
-        g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
+        g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
 
         // revisamos si hay colision con pacman
         checkCollision(g);
@@ -84,11 +84,11 @@ const checkCollision = g => {
     if (g.v==position.v && g.h==position.h) {
         // Revisamos si el fantasma esta en azul para comerlo
         if (document.querySelectorAll("#board>div")[(g.v*20)+g.h].classList.contains("blue")) {
-            g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
+            g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
             g.removeColor("blue");
             g.h=9;
             g.v=9;
-            g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*20)+g.h]);
+            g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
             score=score+10;
             document.getElementById("score").innerHTML=score;
         } else {
@@ -107,7 +107,7 @@ const checkCollision = g => {
  * @return boolean
  */
 const gCanUp = g => screenDraw[g.v-1][g.h]==1 || screenDraw[g.v-1][g.h]==2;
-const gCanRight = g => screenDraw[g.v][g.h+1]==1 || g.h+1==20;
+const gCanRight = g => screenDraw[g.v][g.h+1]==1 || g.h+1==19;
 const gCanDown = g => screenDraw[g.v+1][g.h]==1;
 const gCanLeft = g => screenDraw[g.v][g.h-1]==1 || g.h-1==-1;
 
@@ -152,7 +152,7 @@ function endGame() {
 
     // Ponemos un intervalo en el pacman para que parpadee
     setInterval(() => {
-        document.querySelectorAll("#board>div")[(position.v*20)+position.h].classList.toggle("comecocos")
+        document.querySelectorAll("#board>div")[(position.v*19)+position.h].classList.toggle("comecocos")
     }, 1000);
 }
 
