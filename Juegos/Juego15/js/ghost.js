@@ -70,6 +70,7 @@ ghosts.forEach(g => {
 
         // revisamos si hay colision con pacman
         checkCollision(g);
+        console.log(g);
     }, speedGhost);
 });
 
