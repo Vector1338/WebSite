@@ -55,14 +55,14 @@ ghosts.forEach(g => {
         g.direction=newDirection(g);
         g.elementRemoveColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
         if (g.direction==0 && gCanUp(g)) {
-            g.v=g.v-0.5;
+            g.v=g.v-1.5;
         } else if (g.direction==1 && gCanRight(g)) {
-            g.h=g.h+0.5;
+            g.h=g.h+1.5;
             g.h = g.h==19 ? 0 : g.h;
         } else if (g.direction==2 && gCanDown(g)) {
-            g.v=g.v+0.5;
+            g.v=g.v+1.5;
         } else if (g.direction==3 && gCanLeft(g)) {
-            g.h=g.h-0.5;
+            g.h=g.h-1.5;
             g.h = g.h==-1 ? 18 : g.h;
         }
         g.elementAddColor(document.querySelectorAll("#board>div")[(g.v*19)+g.h]);
